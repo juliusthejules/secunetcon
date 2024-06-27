@@ -2,6 +2,7 @@ const CACHE_NAME = 'secunetcon-cache-v1';
 const urlsToCache = [
     '/secunetcon/',
     '/secunetcon/index.html',
+    '/secunetcon/app.js',
     '/secunetcon/app.webmanifest',
     '/secunetcon/icon-192x192.png',
     '/secunetcon/icon-256x256.png',
