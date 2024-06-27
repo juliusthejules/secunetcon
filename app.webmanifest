@@ -3,7 +3,7 @@
     "background_color": "#ffffff",
     "display": "standalone",
     "scope": "/secunetcon/",
-    "start_url": "/secnetcon/",
+    "start_url": "/secunetcon/",
     "name": "Secunetcon - Direct Device Configuration Language",
     "short_name": "Secunetcon",
     "description": "A direct device configuration language for modifying and securing network settings.",
