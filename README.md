@@ -1,6 +1,6 @@
 # Secunetcon
 
-Secunetcon is a Direct Device Configuration Language (DDCL) that allows you to directly configure device settings using a YAML format. This project includes configurations for both Unix-based and Microsoft systems.
+Secunetcon is a Direct Device Configuration Language (DDCL) that allows you to directly configure device settings using YAML format. This project includes configurations for both Unix-based and Microsoft systems.
 
 ## Overview
 
