@@ -1,6 +1,6 @@
 var GHPATH = '/secunetcon';
 var APP_PREFIX = 'secunetcon';
-var VERSION = 'version_014';
+var VERSION = 'version_015';
 var URLS = [    
   `${GHPATH}/`,
   `${GHPATH}/index.html`,
@@ -11,8 +11,7 @@ var URLS = [
   `${GHPATH}/icon-384x384.png`,
   `${GHPATH}/icon-512x512.png`,
   `${GHPATH}/app.js`,
-  `${GHPATH}/app.webmanifest`,
-  `${GHPATH}/sw.js`
+  `${GHPATH}/app.webmanifest`
 ]
 
 var CACHE_NAME = APP_PREFIX + VERSION
