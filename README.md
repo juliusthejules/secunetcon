@@ -53,6 +53,14 @@ The Microsoft configuration file can be found in the `Microsoft` directory. This
 - Block all incoming traffic
 - Clear browser cookies and cache
 
+### Archives
+
+The archive files can be found in the `Archives` directory. This directory contains compressed versions of the project, which include both Unix-based and Microsoft configuration folders. The available archive formats are:
+
+- `Secunetcon.zip`: A ZIP file containing both Unix-based and Microsoft configuration folders.
+- `Secunetcon.7z`: A 7z file containing both Unix-based and Microsoft configuration folders.
+- `Secunetcon.tar.gz`: A tar.gz file containing both Unix-based and Microsoft configuration folders.
+
 ## Documentation
 
 For detailed documentation on how to use Secunetcon, please refer to the individual configuration files in their respective folders. Each file includes comments explaining the purpose and usage of each command.
