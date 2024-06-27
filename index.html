@@ -10,16 +10,28 @@
     <exec src="./Unix-based/config.yml"></exec>
     <exec src="./Microsoft/config.yml"></exec>
     
-    <!-- Link to the PWA manifest -->
-    <link rel="manifest" href="/secunetcon/app.webmanifest">
+<!--PWA Begin-->
+    <meta name="application-name" content="Secunetcon"/>
+<meta name="theme-color" content="#FFFFFF"/>
+    <link rel="canonical" href="https://juliusthejules.github.io/secunetcon/"/>
+    <link rel="manifest" href="/secunetcon/app.webmanifest"/>
+    <link rel="icon" href="/secunetcon/icon-192x192.png" type="image/png" sizes="192x192"/>
+    <link rel="icon" href="/secunetcom/icon-256x256.png" type="image/png" sizes="256x256"/>
+    <link rel="icon" href="/secunetcon/icon-384x384.png" type="image/png" sizes="384x384"/>
+    <link rel="icon" href="/secunetcon/icon-512x512.png" type="image/png" sizes="512x512"/>
     
-    <!-- Icons for the PWA -->
-    <link rel="icon" href="/secunetcon/icon-192x192.png" sizes="192x192">
-    <link rel="icon" href="/secunetcon/icon-256x256.png" sizes="256x256">
-    <link rel="icon" href="/secunetcon/icon-384x384.png" sizes="384x384">
-    <link rel="icon" href="/secunetcon/icon-512x512.png" sizes="512x512">
-  
-    <meta name="theme-color" content="#ffffff">
+   <script>
+      if (navigator.serviceWorker) {
+        navigator.serviceWorker.register (
+          '/secunetcon/sw.js',
+          {scope: '/secunetcon/'}
+        )
+      }
+  </script>
+
+    <script src="/app.js"></script>
+    <!--PWA End-->
+
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
  <style>
@@ -95,19 +107,6 @@
     <footer>
         <p>Secunetcon. Copyright &copy; 2024 Joseph D. Smith. Licensed under the <a href="LICENSE">Apache 2.0 License</a>.</p>
     </footer>
-
-    <script src="/secunetcon/app.js"></script>
-
-        <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/secunetcon/sw.js')
-            .then(function(registration) {
-                console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            }).catch(function(error) {
-                console.log('ServiceWorker registration failed: ', error);
-            });
-        }
-        </script>
 </body>
 
 </html>
