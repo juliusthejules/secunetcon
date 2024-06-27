@@ -20,18 +20,6 @@
     <link rel="icon" href="/secunetcon/icon-512x512.png" sizes="512x512">
   
     <meta name="theme-color" content="#ffffff">
-
-<!-- Register the service worker -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/secunetcon/sw.js')
-            .then(function(registration) {
-                console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            }).catch(function(error) {
-                console.log('ServiceWorker registration failed: ', error);
-            });
-        }
-    </script>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
  <style>
@@ -107,6 +95,17 @@
     <footer>
         <p>Secunetcon. Copyright &copy; 2024 Joseph D. Smith. Licensed under the <a href="LICENSE">Apache 2.0 License</a>.</p>
     </footer>
+
+        <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/secunetcon/sw.js')
+            .then(function(registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch(function(error) {
+                console.log('ServiceWorker registration failed: ', error);
+            });
+        }
+        </script>
 </body>
 
 </html>
