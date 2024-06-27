@@ -9,6 +9,11 @@
     "description": "A direct device configuration language for modifying and securing network settings.",
     "icons": [
         {
+            "src": "/secunetcon/favicon.ico",
+            "sizes": "32x32",
+            "type": "image/x-icon"
+        },
+        {
             "src": "/secunetcon/icon-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
