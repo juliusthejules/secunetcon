@@ -1,75 +1,97 @@
-# Secunetcon for Unix-based Systems
+# Unix-based Secunetcon
 
-DeviceConfiguration: {
-  # Network Interface Configuration
-  NetworkInterface: {
-    name: eth0,
-    Commands: [
-      # Bring the interface down
-      { command: down },
-      # Set IPv4 address
-      { command: inet, address: 127.0.0.1 },
-      # Set IPv6 address
-      { command: inet6, address: "::1" },
-      # Bring the interface down (again, before changing MAC address)
-      { command: down },
-      # Change MAC address to all zeros
-      { command: hw, address: "00:00:00:00:00:00" },
-      # Bring the interface up
-      { command: up }
-    ]
-  },
-  
-  # Hostname Configuration
-  Hostname: {
-    # Change hostname to localhost
-    Statement: { command: set, value: 127.0.0.1 }
-  },
+network_settings:
+  - command: sudo ifconfig eth0 down
+    comment: Mask IPv4 and IPv6 addresses
 
-  # Bluetooth Configuration
-  Bluetooth: {
-    interface: hci0,
-    Commands: [
-      # Bring Bluetooth interface down
-      { command: down },
-      # Bring Bluetooth interface up
-      { command: up },
-      # Change Bluetooth device name to localhost
-      { command: name, value: localhost },
-      # Make Bluetooth discoverable
-      { command: piscan }
-    ]
-  },
+network_configuration:
+  - command: sudo ifconfig eth0 inet 127.0.0.1
+    comment: Assign localhost IP
 
-  # Services Management
-  Services: {
-    Commands: [
-      # Stop the ModemManager service
-      { service: ModemManager, command: stop },
-      # Disable the ModemManager service
-      { service: ModemManager, command: disable }
-    ]
-  },
+hostname:
+  - command: sudo hostnamectl set-hostname 127.0.0.1
+    comment: Change hostname to localhost
 
-  # Firewall Rules
-  Firewall: {
-    Rules: [
-      # Block all ICMP echo requests (pings)
-      { command: OUTPUT, protocol: icmp, icmp-type: echo-request, target: DROP },
-      # Block all incoming traffic
-      { command: INPUT, target: DROP }
-    ]
-  },
+mac_address:
+  - command: sudo ifconfig eth0 hw ether 00:00:00:00:00:00
+    comment: Change MAC address to all zeros
 
-  # Browser Cache and Cookies Clearing
-  Browser: {
-    ClearCacheAndCookies: [
-      # Clear cache and cookies for Google Chrome
-      { browser: google-chrome, options: "--clear-cache --clear-cookies" },
-      # Clear cache and cookies for Firefox
-      { browser: firefox, options: "--clear-cache --clear-cookies" }
-    ]
-  }
-}
+bluetooth_address:
+  - command: sudo hciconfig hci0 down
+    comment: Disable Bluetooth interface
+  - command: sudo hciconfig hci0 up
+    comment: Enable Bluetooth interface
+  - command: sudo hciconfig hci0 name localhost
+    comment: Change Bluetooth name
+  - command: sudo hciconfig hci0 piscan
+    comment: Enable Bluetooth discovery
 
-# Secunetcon. Copyright © 2024. Joseph D. Smith. All Rights Reserved.
+location_services:
+  - command: sudo systemctl stop ModemManager
+    comment: Disable location and geolocation
+
+firewall:
+  - command: sudo iptables -A OUTPUT -p icmp --icmp-type echo-request -j DROP
+    comment: Close pings
+  - command: sudo iptables -A INPUT -j DROP
+    comment: Block all ingress traffic
+
+browser_cleanup:
+  - command: google-chrome --clear-cache --clear-cookies &> /dev/null
+    comment: Clear browser cookies and cache for Chrome
+  - command: firefox --clear-cache --clear-cookies &> /dev/null
+    comment: Clear browser cookies and cache for Firefox
+  - command: brave-browser --clear-cache --clear-cookies &> /dev/null
+    comment: Clear browser cookies and cache for Brave
+  - command: vivaldi --clear-cache --clear-cookies &> /dev/null
+    comment: Clear browser cookies and cache for Vivaldi
+  - command: chromium --clear-cache --clear-cookies &> /dev/null
+    comment: Clear browser cookies and cache for Chromium
+
+disk_encryption:
+  - command: sudo apt-get install -y cryptsetup
+    comment: Install cryptsetup
+  - command: sudo cryptsetup luksFormat /dev/sdX
+    comment: Format disk with LUKS encryption
+  - command: sudo cryptsetup luksOpen /dev/sdX cryptdisk
+    comment: Open LUKS encrypted disk
+  - command: sudo mkfs.ext4 /dev/mapper/cryptdisk
+    comment: Create filesystem on encrypted disk
+  - command: sudo mount /dev/mapper/cryptdisk /mnt
+    comment: Mount encrypted disk
+
+browser_encryption:
+  - command: mkdir ~/.mozilla/firefox/encrypted-profile
+    comment: Create encrypted Firefox profile directory
+  - command: encfs ~/.mozilla/firefox/encrypted-profile ~/.mozilla/firefox/profile
+    comment: Mount encrypted Firefox profile
+  - command: mv ~/.mozilla/firefox/profile ~/.mozilla/firefox/plain-profile
+    comment: Move existing Firefox profile to plain directory
+  - command: ln -s ~/.mozilla/firefox/encrypted-profile ~/.mozilla/firefox/profile
+    comment: Link encrypted profile to Firefox profile directory
+  - command: mkdir ~/.config/google-chrome/encrypted-profile
+    comment: Create encrypted Chrome profile directory
+  - command: encfs ~/.config/google-chrome/encrypted-profile ~/.config/google-chrome/Default
+    comment: Mount encrypted Chrome profile
+  - command: mv ~/.config/google-chrome/Default ~/.config/google-chrome/plain-profile
+    comment: Move existing Chrome profile to plain directory
+  - command: ln -s ~/.config/google-chrome/encrypted-profile ~/.config/google-chrome/Default
+    comment: Link encrypted profile to Chrome profile directory
+  - command: mkdir ~/.config/brave-browser/encrypted-profile
+    comment: Create encrypted Brave profile directory
+  - command: encfs ~/.config/brave-browser/encrypted-profile ~/.config/brave-browser/Default
+    comment: Mount encrypted Brave profile
+  - command: mv ~/.config/brave-browser/Default ~/.config/brave-browser/plain-profile
+    comment: Move existing Brave profile to plain directory
+  - command: ln -s ~/.config/brave-browser/encrypted-profile ~/.config/brave-browser/Default
+    comment: Link encrypted profile to Brave profile directory
+  - command: mkdir ~/.config/vivaldi/encrypted-profile
+    comment: Create encrypted Vivaldi profile directory
+  - command: encfs ~/.config/vivaldi/encrypted-profile ~/.config/vivaldi/Default
+    comment: Mount encrypted Vivaldi profile
+  - command: mv ~/.config/vivaldi/Default ~/.config/vivaldi/plain-profile
+    comment: Move existing Vivaldi profile to plain directory
+  - command: ln -s ~/.config/vivaldi/encrypted-profile ~/.config/vivaldi/Default
+    comment: Link encrypted profile to Vivaldi profile directory
+    
+# Secunetcon. Copyright © 2024. Joseph D. Smith. Licensed under Apache 2.0
