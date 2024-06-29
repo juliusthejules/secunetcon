@@ -1,96 +1,89 @@
-/* Reset default styles and ensure proper box-sizing */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* Body styles */
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background-color: #f4f4f4;
-  color: #333333;
-  margin: 0;
+    background-color: #f0f0f0; /* Light gray background */
+    color: #333; /* Dark text color */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-/* Container for content */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+header, main, footer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Header styles */
-h1, h2, h3, h4, h5, h6 {
-  background-color: #0056b3;
-  color: #ffffff;
-  padding: 10px;
-  margin: 20px 0 10px;
+header {
+    background-color: #0044cc; /* Dark blue background */
+    color: #fff; /* White text color */
+    padding: 20px;
+    text-align: center;
 }
 
-/* Paragraph and section styles */
-p, div, section {
-  background-color: #ffffff;
-  color: #333333;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+header a {
+    color: #ffcc00; /* Yellow link color */
+    text-decoration: none;
 }
 
-/* List styles */
-ul, ol {
-  background-color: #ffffff;
-  color: #333333;
-  padding: 20px;
-  margin-bottom: 20px;
-  list-style-position: inside;
+header a:hover {
+    text-decoration: underline;
 }
 
-/* Link styles */
+section {
+    margin: 20px 0;
+}
+
+h2 {
+    background-color: #222; /* Very dark gray background */
+    color: #fff; /* White text color */
+    padding: 10px;
+}
+
+ul {
+    background-color: #f9f9f9; /* Light gray background for lists */
+    padding: 10px;
+}
+
+li {
+    margin: 10px 0;
+}
+
 a {
-  color: #0056b3;
-  text-decoration: underline;
+    color: #0044cc; /* Blue link color */
+    text-decoration: none;
 }
 
-a:hover, a:focus {
-  color: #003366;
+a:hover {
+    text-decoration: underline;
 }
 
-/* Tip jar section styles */
 .tip-jar {
-  background-color: #ffffff;
-  color: #333333;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.tip-jar h2 {
-  background-color: #ffcc00;
-  color: #333333;
-  padding: 10px;
-  margin: 0 0 10px;
-}
-
-.tip-jar p {
-  background-color: #f4f4f4;
-  color: #333333;
-  padding: 10px;
-  margin: 0 0 10px;
+    background-color: #0044cc; /* Dark blue background */
+    color: #fff; /* White text color */
+    padding: 20px;
+    text-align: center;
 }
 
 .tip-button {
-  background-color: #0056b3;
-  color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+    background-color: #ffcc00; /* Yellow background */
+    color: #0044cc; /* Dark blue text color */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
 }
 
 .tip-button:hover {
-  background-color: #003366;
+    background-color: #ffdd44; /* Lighter yellow on hover */
+}
+
+footer {
+    background-color: #222; /* Very dark gray background */
+    color: #fff; /* White text color */
+    text-align: center;
+    padding: 20px;
+}
+
+* {
+    box-sizing: border-box;
 }
