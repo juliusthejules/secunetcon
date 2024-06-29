@@ -36,14 +36,20 @@
     <link rel="icon" href="/secunetcon/icon-384x384.png" type="image/png" sizes="384x384">
     <link rel="icon" href="/secunetcon/icon-512x512.png" type="image/png" sizes="512x512">
     
-   <script>
-      if (navigator.serviceWorker) {
-        navigator.serviceWorker.register (
-          '/secunetcon/sw.js',
-          {scope: '/secunetcon/'}
-        )
-      }
-  </script>
+   <!-- Register the service worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function(registration) {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          })
+          .catch(function(error) {
+            console.error('ServiceWorker registration failed: ', error);
+          });
+      });
+    }
+                </script>
     <!--PWA End-->
 
     <script type="application/ld+json">
