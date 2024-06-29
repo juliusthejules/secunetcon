@@ -1,58 +1,45 @@
-var GHPATH = '/secunetcon';
-var APP_PREFIX = 'secunetcon';
-var VERSION = 'version_032';
-var URLS = [    
-  `${GHPATH}/`,
-  `${GHPATH}/index.html`,
-  `${GHPATH}/styles.css`,
-  `${GHPATH}/favicon.ico`,
-  `${GHPATH}/icon-192x192.png`,
-  `${GHPATH}/icon-256x256.png`,
-  `${GHPATH}/icon-384x384.png`,
-  `${GHPATH}/icon-512x512.png`,
-  `${GHPATH}/social.png`,
-  `${GHPATH}/app.js`,
-  `${GHPATH}/app.webmanifest`
-]
+// Install event for service worker
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open('v1').then(function(cache) {
+      return cache.addAll([
+        '/index.html',
+        '/styles.css',
+        '/script.js',
+        '/social.png',
+        '/favicon.ico',
+        '/app.webmanifest'
+        // Add other resources to cache
+      ]);
+    })
+  );
+});
 
-var CACHE_NAME = APP_PREFIX + VERSION
-self.addEventListener('fetch', function (e) {
-  console.log('Fetch request : ' + e.request.url);
-  e.respondWith(
-    caches.match(e.request).then(function (request) {
-      if (request) { 
-        console.log('Responding wi`th cache : ' + e.request.url);
-        return request
-      } else {       
-        console.log('File is not cached, fetching : ' + e.request.url);
-        return fetch(e.request)
+// Fetch event for service worker
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request).then(function(response) {
+      // Cache hit - return response
+      if (response) {
+        return response;
       }
-    })
-  )
-})
 
-self.addEventListener('install', function (e) {
-  e.waitUntil(
-    caches.open(CACHE_NAME).then(function (cache) {
-      console.log('Installing cache : ' + CACHE_NAME);
-      return cache.addAll(URLS)
-    })
-  )
-})
-
-self.addEventListener('activate', function (e) {
-  e.waitUntil(
-    caches.keys().then(function (keyList) {
-      var cacheWhitelist = keyList.filter(function (key) {
-        return key.indexOf(APP_PREFIX)
-      })
-      cacheWhitelist.push(CACHE_NAME);
-      return Promise.all(keyList.map(function (key, i) {
-        if (cacheWhitelist.indexOf(key) === -1) {
-          console.log('Deleting cache : ' + keyList[i] );
-          return caches.delete(keyList[i])
+      // Fetch and cache new requests
+      return fetch(event.request).then(function(response) {
+        // Check if we received a valid response
+        if (!response || response.status !== 200 || response.type !== 'basic') {
+          return response;
         }
-      }))
+
+        // Clone the response to use it and cache it
+        var responseToCache = response.clone();
+
+        caches.open('v1').then(function(cache) {
+          cache.put(event.request, responseToCache);
+        });
+
+        return response;
+      });
     })
-  )
-})
+  );
+});
