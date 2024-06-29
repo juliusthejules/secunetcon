@@ -2,10 +2,10 @@
 
 const CACHE_NAME = 'secunetcon-cache-v1';
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/styles.css',
-    '/social.png'
+    './',
+    './index.html',
+    './styles.css',
+    './social.png'
 ];
 
 // Install the service worker
