@@ -1,103 +1,96 @@
-/* General styles */
-body {
-  background-color: #f4f4f4;
-  color: #333333;
-  font-family: Arial, sans-serif;
+/* Reset default styles and ensure proper box-sizing */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-/* Full backdrop shadow effect */
-* {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-}
-
-/* Header styles */
-h1, h2, h3, h4, h5, h6 {
-  background-color: #0056b3; /* Dark blue background */
-  color: #ffffff; /* White text */
-  padding: 10px;
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333333;
   margin: 0;
 }
 
-/* Paragraph and div styles */
-p, div {
-  background-color: #ffffff; /* White background */
-  color: #333333; /* Dark grey text */
-  padding: 10px;
-  margin: 0;
-}
-
-/* List styles */
-ul, ol {
-  background-color: #ffffff; /* White background */
-  color: #333333; /* Dark grey text */
-  padding: 10px;
-  margin: 0;
-  list-style-position: inside;
-}
-
-/* Link styles */
-a {
-  color: #0056b3; /* Dark blue text */
-  text-decoration: underline; /* Underline links to distinguish them */
-}
-
-/* Ensure links are distinguishable on hover */
-a:hover, a:focus {
-  color: #003366; /* Darker blue on hover/focus */
-  text-decoration: underline;
-}
-
-/* Ensure viewport is fixed and content is responsive */
-html, body {
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-}
-
+/* Container for content */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
+/* Header styles */
+h1, h2, h3, h4, h5, h6 {
+  background-color: #0056b3;
+  color: #ffffff;
+  padding: 10px;
+  margin: 20px 0 10px;
+}
+
+/* Paragraph and section styles */
+p, div, section {
+  background-color: #ffffff;
+  color: #333333;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* List styles */
+ul, ol {
+  background-color: #ffffff;
+  color: #333333;
+  padding: 20px;
+  margin-bottom: 20px;
+  list-style-position: inside;
+}
+
+/* Link styles */
+a {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+a:hover, a:focus {
+  color: #003366;
+}
+
 /* Tip jar section styles */
 .tip-jar {
-  background-color: #ffffff; /* White background */
-  color: #333333; /* Dark grey text */
+  background-color: #ffffff;
+  color: #333333;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Full backdrop shadow */
-  margin: 20px 0;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .tip-jar h2 {
-  background-color: #ffcc00; /* Yellow background for heading */
-  color: #333333; /* Dark grey text */
+  background-color: #ffcc00;
+  color: #333333;
   padding: 10px;
-  margin: 0 0 10px 0;
+  margin: 0 0 10px;
 }
 
 .tip-jar p {
-  background-color: #f4f4f4; /* Light grey background */
-  color: #333333; /* Dark grey text */
+  background-color: #f4f4f4;
+  color: #333333;
   padding: 10px;
-  margin: 0 0 10px 0;
+  margin: 0 0 10px;
 }
 
 .tip-button {
-  background-color: #0056b3; /* Dark blue background */
-  color: #ffffff; /* White text */
+  background-color: #0056b3;
+  color: #ffffff;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
-  display: inline-block;
   text-align: center;
   text-decoration: none;
+  display: inline-block;
 }
 
 .tip-button:hover {
-  background-color: #003366; /* Darker blue on hover */
-    }
+  background-color: #003366;
+}
