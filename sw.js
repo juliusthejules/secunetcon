@@ -1,6 +1,6 @@
 var GHPATH = '/secunetcon';
 var APP_PREFIX = 'secunetcon';
-var VERSION = 'version_028';
+var VERSION = 'version_029';
 var URLS = [    
   `${GHPATH}/`,
   `${GHPATH}/index.html`,
