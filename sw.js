@@ -1,19 +1,18 @@
-// sw.js
-
 const CACHE_NAME = 'secunetcon-cache-v1';
 const urlsToCache = [
-    './',
-    './index.html',
-    './styles.css',
-    './social.png'
+    '/',
+    '/index.html',
+    '/styles.css',
+    '/social.png'
 ];
 
 // Install the service worker
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME)
-            .then(cache => cache.addAll(urlsToCache))
-            .catch(error => console.error('Failed to open cache during install:', error))
+            .then(cache => {
+                return cache.addAll(urlsToCache);
+            })
     );
 });
 
@@ -21,8 +20,9 @@ self.addEventListener('install', event => {
 self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request)
-            .then(response => response || fetch(event.request))
-            .catch(error => console.error('Fetch error:', error))
+            .then(response => {
+                return response || fetch(event.request);
+            })
     );
 });
 
@@ -38,6 +38,6 @@ self.addEventListener('activate', event => {
                     }
                 })
             );
-        }).catch(error => console.error('Activation error:', error))
+        })
     );
 });
