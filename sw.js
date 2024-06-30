@@ -1,4 +1,4 @@
-const CACHE_NAME = 'secunetcon-cache-v4';
+const CACHE_NAME = 'secunetcon-cache-v5';
 const urlsToCache = [
     './',
     './index.html',
