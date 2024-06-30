@@ -58,28 +58,43 @@ a:hover {
     text-decoration: underline;
 }
 
-.tip-jar, .contact {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
+.tip-jar {
+    background-color: #0044cc; /* Dark blue background */
+    color: #fff; /* White text color */
     padding: 20px;
-    margin: 20px;
     text-align: center;
 }
 
-.tip-button, .contact-button {
-    display: inline-block;
+.tip-button {
+    background-color: #ffcc00; /* Yellow background */
+    color: #0044cc; /* Dark blue text color */
     padding: 10px 20px;
-    margin-top: 10px;
-    background-color: #4CAF50;
-    color: white;
     text-decoration: none;
     border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.tip-button:hover, .contact-button:hover {
-    background-color: #45a049;
-    }
+.tip-button:hover {
+    background-color: #ffdd44; /* Lighter yellow on hover */
+}
+
+.contact {
+    background-color: #0044cc; /* Dark blue background */
+    color: #fff; /* White text color */
+    padding: 20px;
+    text-align: center;
+}
+
+.contact-button {
+    background-color: #ffcc00; /* Yellow background */
+    color: #0044cc; /* Dark blue text color */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.contact-button:hover {
+    background-color: #ffdd44; /* Lighter yellow on hover */
+}
 
 footer {
     background-color: #222; /* Very dark gray background */
