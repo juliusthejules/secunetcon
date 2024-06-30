@@ -1,5 +1,3 @@
-const CACHE_NAME = 'secunetcon-cache-v1'; // Updated version number
-
 const urlsToCache = [
     './',
     './index.html',
@@ -16,7 +14,7 @@ const urlsToCache = [
 // Install the service worker
 self.addEventListener('install', event => {
     event.waitUntil(
-        caches.open(CACHE_NAME)
+        caches.open('secunetcon-cache') // No versioning here
             .then(cache => {
                 return cache.addAll(urlsToCache);
             })
@@ -34,7 +32,7 @@ self.addEventListener('fetch', event => {
                         if (!response.ok) {
                             throw new Error(`HTTP error! status: ${response.status}`);
                         }
-                        return caches.open(CACHE_NAME)
+                        return caches.open('secunetcon-cache') // No versioning here
                             .then(cache => {
                                 cache.put(event.request, response.clone());
                                 return response;
@@ -49,18 +47,14 @@ self.addEventListener('fetch', event => {
     );
 });
 
-// Update the service worker and clean up old caches
+// Update the service worker (Simple approach without versioning)
 self.addEventListener('activate', event => {
-    const cacheWhitelist = [CACHE_NAME];
     event.waitUntil(
         caches.keys().then(cacheNames => {
-            return Promise.all(
-                cacheNames.map(cacheName => {
-                    if (!cacheWhitelist.includes(cacheName)) {
-                        return caches.delete(cacheName);
-                    }
-                })
-            );
+            return cacheNames.map(cacheName => {
+                return caches.delete(cacheName); // Delete all caches on activate
+            });
         })
     );
 });
+                           
