@@ -11,7 +11,7 @@ network_settings:
     comment: Assign IPv6 localhost address (replace "Ethernet" with actual adapter name)
 
 hostname:
-  - command: hostname localhost
+  - command: hostname 127.0.0.1
     comment: Change hostname to 127.0.0.1
 
 mac_address:
