@@ -12,7 +12,7 @@ network_settings:
 
 hostname:
   - command: hostname 127.0.0.1
-    comment: Change hostname to 127.0.0.1
+    comment: Change hostname to IPv4 localhost address
 
 mac_address:
   - command: reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4D36E972-E325-11CE-BFC1-08002bE10318}\0000" /v NetworkAddress /d "000000000000"
