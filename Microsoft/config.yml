@@ -5,23 +5,23 @@ network_settings:
     comment: Release IP address
   - command: ipconfig /renew
     comment: Renew IP address
-  - command: netsh interface ipv4 set address "Ethernet" static 127.0.0.1
-    comment: Assign localhost IP (replace "Ethernet" with actual adapter name)
-  - command: netsh interface ipv6 set address "Ethernet" static ::1
-    comment: Assign IPv6 localhost address (replace "Ethernet" with actual adapter name)
+  - command: netsh interface ipv4 set address "." static 127.0.0.1
+    comment: Assign localhost IP
+  - command: netsh interface ipv6 set address "." static ::1
+    comment: Assign IPv6 localhost address
 
 hostname:
   - command: hostname 127.0.0.1
     comment: Change hostname to IPv4 localhost address
 
 mac_address:
-  - command: reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4D36E972-E325-11CE-BFC1-08002bE10318}\0000" /v NetworkAddress /d "000000000000"
-    comment: Change MAC address to all zeros (replace "0000" with adapter ID)
+  - command: reg add ".\SYSTEM\CurrentControlSet\Control\Class\{4D36E972-E325-11CE-BFC1-08002bE10318}\." /v NetworkAddress /d "000000000000"
+    comment: Change MAC address to all zeros
 
 bluetooth_address:
-  - command: reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BTHPORT\Parameters\Keys\001122334455" /v Name /d "localhost"
+  - command: reg add ".\SYSTEM\CurrentControlSet\Services\BTHPORT\Parameters\Keys\." /v Name /d "localhost"
     comment: Change Bluetooth name to localhost
-  - command: reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BTHPORT\Parameters\Keys\001122334455" /v EnableLMPiscan /d 1 /t REG_DWORD /f
+  - command: reg add ".\SYSTEM\CurrentControlSet\Services\BTHPORT\Parameters\Keys\." /v EnableLMPiscan /d 1 /t REG_DWORD /f
     comment: Enable Bluetooth discovery
 
 location_services:
