@@ -7,6 +7,8 @@ network_settings:
     comment: Renew IP address
   - command: netsh interface ipv4 set address "Ethernet" static 127.0.0.1
     comment: Assign localhost IP (replace "Ethernet" with actual adapter name)
+  - command: netsh interface ipv6 set address "Ethernet" static ::1
+    comment: Assign IPv6 localhost address (replace "Ethernet" with actual adapter name)
 
 hostname:
   - command: hostname localhost
@@ -45,8 +47,8 @@ browser_cleanup:
     comment: Clear browser cookies and cache for Edge
 
 disk_encryption:
-  - command: manage-bde -on C: -RecoveryPassword
-    comment: Enable BitLocker encryption for drive C:
+  - command: manage-bde -on C:\ -RecoveryPassword
+    comment: Enable BitLocker encryption for drive C:\
 
 browser_encryption:
   - command: "C:\Program Files\Mozilla Firefox\firefox.exe" -CreateProfile "encrypted-profile"
