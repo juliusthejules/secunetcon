@@ -6,7 +6,9 @@ network_settings:
 
 network_configuration:
   - command: sudo ifconfig eth0 inet 127.0.0.1
-    comment: Assign localhost IP
+    comment: Assign localhost IPv4 address
+  - command: sudo ifconfig eth0 inet6 add ::1/128
+    comment: Assign localhost IPv6 address
 
 hostname:
   - command: sudo hostnamectl set-hostname 127.0.0.1
