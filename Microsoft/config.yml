@@ -29,8 +29,8 @@ location_services:
 firewall:
   - command: netsh advfirewall firewall add rule name="Block ICMP" protocol=icmpv4:any,any action=block
     comment: Close pings
-  - command: netsh advfirewall set allprofiles firewallpolicy blockinbound,blockoutbound
-    comment: Block all ingress and egress traffic
+  - command: netsh advfirewall set allprofiles firewallpolicy blockinbound
+    comment: Block all ingress traffic
 
 browser_cleanup:
   - command: start chrome --clear-ssl-state --incognito
