@@ -1,14 +1,14 @@
 const urlsToCache = [
-    './',
-    './index.html',
-    './styles.css',
-    './social.png',
-    './favicon.ico',
-    './icon-192x192.png',
-    './icon-256x256.png',
-    './icon-384x384.png',
-    './icon-512x512.png',
-    './app.webmanifest',
+    '/',
+    '/index.html',
+    '/styles.css',
+    '/social.png',
+    '/favicon.ico',
+    '/icon-192x192.png',
+    '/icon-256x256.png',
+    '/icon-384x384.png',
+    '/icon-512x512.png',
+    '/app.webmanifest',
 ];
 
 // Install the service worker
