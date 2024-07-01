@@ -51,8 +51,6 @@ browser_cleanup:
 disk_encryption:
   - command: sudo apt-get install -y cryptsetup
     comment: Install cryptsetup
-  - command: sudo cryptsetup luksFormat /dev/sdX
-    comment: Format disk with LUKS encryption
   - command: sudo cryptsetup luksOpen /dev/sdX cryptdisk
     comment: Open LUKS encrypted disk
   - command: sudo mkfs.ext4 /dev/mapper/cryptdisk
