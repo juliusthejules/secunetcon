@@ -9,6 +9,10 @@ network_configuration:
     comment: Assign localhost IPv4 address
   - command: sudo ifconfig eth0 inet6 add ::1/128
     comment: Assign localhost IPv6 address
+  - command: sudo nmcli con mod eth0 ipv4.dns "127.0.0.1"
+    comment: Set primary DNS to localhost IPv4 address
+  - command: sudo nmcli con mod eth0 ipv6.dns "::1"
+    comment: Set secondary DNS to localhost IPv6 address
 
 hostname:
   - command: sudo hostnamectl set-hostname 127.0.0.1
@@ -49,6 +53,8 @@ browser_cleanup:
     comment: Clear browser cookies and cache for Vivaldi
   - command: chromium --clear-cache --clear-cookies &> /dev/null
     comment: Clear browser cookies and cache for Chromium
+  - command: ddg-browser --clear-cache --clear-cookies &> /dev/null
+    comment: Clear browser cookies and cache for DuckDuckGo
 
 disk_encryption:
   - command: sudo apt-get install -y cryptsetup
@@ -93,5 +99,13 @@ browser_encryption:
     comment: Move existing Vivaldi profile to plain directory
   - command: ln -s ~/.config/vivaldi/encrypted-profile ~/.config/vivaldi/Default
     comment: Link encrypted profile to Vivaldi profile directory
+  - command: mkdir ~/.config/duckduckgo-browser/encrypted-profile
+    comment: Create encrypted DuckDuckGo profile directory
+  - command: encfs ~/.config/duckduckgo-browser/encrypted-profile ~/.config/duckduckgo-browser/Default
+    comment: Mount encrypted DuckDuckGo profile
+  - command: mv ~/.config/duckduckgo-browser/Default ~/.config/duckduckgo-browser/plain-profile
+    comment: Move existing DuckDuckGo profile to plain directory
+  - command: ln -s ~/.config/duckduckgo-browser/encrypted-profile ~/.config/duckduckgo-browser/Default
+    comment: Link encrypted profile to DuckDuckGo profile directory
     
 # Secunetcon. Copyright © 2024. Joseph D. Smith. Licensed under Apache 2.0
