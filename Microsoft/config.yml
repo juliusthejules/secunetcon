@@ -5,23 +5,27 @@ network_settings:
     comment: Release IP address
   - command: ipconfig /renew
     comment: Renew IP address
-  - command: netsh interface ipv4 set address "." static 127.0.0.1
-    comment: Assign localhost IP
-  - command: netsh interface ipv6 set address "." static ::1
+  - command: netsh interface ipv4 set address name="Ethernet" static 127.0.0.1
+    comment: Assign IPv4 localhost address
+  - command: netsh interface ipv6 set address name="Ethernet" static ::1
     comment: Assign IPv6 localhost address
+  - command: netsh interface ipv4 set dns name="Ethernet" source=static addr=127.0.0.1 register=none
+    comment: Set primary DNS to IPv4 localhost address
+  - command: netsh interface ipv6 set dns name="Ethernet" source=static addr=::1 register=none
+    comment: Set secondary DNS to IPv6 localhost address
 
 hostname:
-  - command: hostname 127.0.0.1
+  - command: powershell -Command "Rename-Computer -NewName 'localhost'"
     comment: Change hostname to IPv4 localhost address
 
 mac_address:
-  - command: reg add ".\SYSTEM\CurrentControlSet\Control\Class\{4D36E972-E325-11CE-BFC1-08002bE10318}\." /v NetworkAddress /d "000000000000"
+  - command: reg add ".\SYSTEM\CurrentControlSet\Control\Class\{4D36E972-E325-11CE-BFC1-08002bE10318}\." /v NetworkAddress /d "000000000000" /f
     comment: Change MAC address to all zeros
 
 bluetooth_address:
-  - command: reg add ".\SYSTEM\CurrentControlSet\Services\BTHPORT\Parameters\Keys\." /v Name /d "localhost"
+  - command: reg add ".\SYSTEM\CurrentControlSet\Services\BTHPORT\Parameters\Keys\." /v Name /d "localhost" /f
     comment: Change Bluetooth name to localhost
-  - command: reg add ".\SYSTEM\CurrentControlSet\Services\BTHPORT\Parameters\Keys\." /v EnableLMPiscan /d 1 /t REG_DWORD /f
+  - command: reg add ".\SYSTEM\CurrentControlSet\Services\BTHPORT\Parameters\keys\." /v EnableLMPiscan /d 1 /t REG_DWORD /f
     comment: Enable Bluetooth discovery
 
 location_services:
@@ -45,6 +49,8 @@ browser_cleanup:
     comment: Clear browser cookies and cache for Vivaldi
   - command: start msedge --clear-browser-data
     comment: Clear browser cookies and cache for Edge
+  - command: start ddg --clear-cache --clear-cookies
+    comment: Clear browser cookies and cache for DuckDuckGo
 
 disk_encryption:
   - command: manage-bde -on C:\ -RecoveryPassword
@@ -67,5 +73,9 @@ browser_encryption:
     comment: Create encrypted Vivaldi profile
   - command: encfs "C:\Users\.\AppData\Local\Vivaldi\encrypted-profile" "C:\Users\.\AppData\Local\Vivaldi\plain-profile"
     comment: Mount encrypted Vivaldi profile
+  - command: "C:\Program Files\DuckDuckGo\ddg.exe" --user-data-dir="C:\Users\.\AppData\Local\DuckDuckGo\encrypted-profile"
+    comment: Create encrypted DuckDuckGo profile
+  - command: encfs "C:\Users\.\AppData\Local\DuckDuckGo\encrypted-profile" "C:\Users\.\AppData\Local\DuckDuckGo\plain-profile"
+    comment: Mount encrypted DuckDuckGo profile
     
 # Secunetcon. Copyright © 2024. Joseph D. Smith. Licensed under Apache 2.0
