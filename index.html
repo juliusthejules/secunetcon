@@ -40,17 +40,16 @@
     <exec src="./Microsoft/config.yml"></exec>
 <!-- Backend End -->
         
-<!-- PWA Begin -->
+<!-- Styling Begin -->
     <meta name="application-name" content="Secunetcon">
 <meta name="theme-color" content="#000000">
     <link rel="stylesheet" href="./styles.css">
-    <link rel="manifest" href="./app.webmanifest">
     <link rel="icon" href="./favicon.ico" type="image/x-icon" sizes="32x32">
     <link rel="icon" href="./icon-192x192.png" type="image/png" sizes="192x192">
     <link rel="icon" href="./icon-256x256.png" type="image/png" sizes="256x256">
     <link rel="icon" href="./icon-384x384.png" type="image/png" sizes="384x384">
     <link rel="icon" href="./icon-512x512.png" type="image/png" sizes="512x512">
-    <!-- PWA End -->
+    <!-- Styling End -->
 
 <!-- JSON-LD Begin -->
         <script type="application/ld+json">
@@ -117,20 +116,6 @@
         <p><a href="https://juliusthejules.github.io/secunetcon/" rel="tag noopener noreferrer">Secunetcon</a>. Copyright &copy; 2024. Joseph D. Smith. Licensed under the <a href="./LICENSE" rel="license noopener noreferrer" target="_blank">Apache 2.0 License</a>.</p>
     </footer>
         <!-- Footet End -->
-
-        <!-- Service Worker Registration Begin -->
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js')
-      .then(registration => {
-        console.log('Service worker registration successful:', registration);
-      })
-      .catch(error => {
-        console.error('Service worker registration failed:', error);
-      });
-  }
-</script>
-<!-- Service Worker Registration End -->
         
     </body>
 </html>
