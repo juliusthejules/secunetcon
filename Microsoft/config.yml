@@ -23,9 +23,9 @@ mac_address:
     comment: Change MAC address to all zeros
 
 bluetooth_address:
-  - command: reg add ".\SYSTEM\CurrentControlSet\Services\BTHPORT\Parameters\Keys\." /v Name /d "localhost" /f
+  - command: reg add ".\SYSTEM\CurrentControlSet\Services\.\Parameters\Keys\." /v Name /d "localhost" /f
     comment: Change Bluetooth name to localhost
-  - command: reg add ".\SYSTEM\CurrentControlSet\Services\BTHPORT\Parameters\keys\." /v EnableLMPiscan /d 1 /t REG_DWORD /f
+  - command: reg add ".\SYSTEM\CurrentControlSet\Services\.\Parameters\keys\." /v EnableLMPiscan /d 1 /t REG_DWORD /f
     comment: Enable Bluetooth discovery
 
 location_services:
