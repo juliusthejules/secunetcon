@@ -6,11 +6,6 @@ a:focus, button:focus, input:focus, textarea:focus {
     outline-offset: 2px;
 }
 
-/* Larger text for better readability */
-body, header, main, footer, h2, ul, .tip-jar, .contact, footer {
-    font-size: 1.25em; /* Increase base font size by 25% */
-}
-
 /* High-contrast links */
 a {
     color: #00f; /* Bright blue link color */
@@ -35,10 +30,8 @@ body, header, main, footer, h2, ul, .tip-jar, .contact, footer {
 .tip-button, .contact-button {
     background-color: #ffcc00; /* Yellow background */
     color: #0044cc; /* Dark blue text color */
-    padding: 15px 30px; /* Increase padding */
     border: none; /* Remove border */
-    border-radius: 8px; /* Increase border-radius */
-    font-size: 1.25em; /* Increase font size */
+    border-radius: 5px; /* Keep the same border-radius */
 }
 
 .tip-button:hover, .contact-button:hover {
@@ -48,11 +41,10 @@ body, header, main, footer, h2, ul, .tip-jar, .contact, footer {
 /* List styles for better readability */
 ul {
     background-color: #f9f9f9; /* Light gray background for lists */
-    padding: 20px; /* Increase padding */
-    border-radius: 8px; /* Add border-radius */
+    border-radius: 5px; /* Keep the same border-radius */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
 }
 
 li {
-    margin: 15px 0; /* Increase margin */
+    margin: 10px 0; /* Keep the same margin */
 }
