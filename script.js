@@ -10,10 +10,13 @@ function executeCommand() {
 
     switch (input) {
         case 'download archive1':
-            window.location.href = 'https://example.com/archive1.zip'; // Replace with your actual download link
+            window.location.href = './Archives/Secunetcon.zip'; // Replace with your actual download link
             break;
         case 'download archive2':
-            window.location.href = 'https://example.com/archive2.zip'; // Replace with your actual download link
+            window.location.href = './Archives/Secunetcon.tar.gz'; // Replace with your actual download link
+            break;
+            case 'download archive2':
+            window.location.href = './Archives/Secunetcon.7z'; // Replace with your actual download link
             break;
         case 'navigate top':
             window.scrollTo(0, 0);
