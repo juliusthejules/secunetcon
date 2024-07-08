@@ -15,7 +15,7 @@ function executeCommand() {
         case 'download archive2':
             window.location.href = './Archives/Secunetcon.tar.gz'; // Replace with your actual download link
             break;
-            case 'download archive3':
+        case 'download archive3':
             window.location.href = './Archives/Secunetcon.7z'; // Replace with your actual download link
             break;
         case 'navigate top':
