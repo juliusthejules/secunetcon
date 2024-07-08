@@ -9,13 +9,13 @@ function executeCommand() {
     const input = document.getElementById('cli-input').value.trim().toLowerCase();
 
     switch (input) {
-        case 'download archive1':
+        case 'download zip':
             window.location.href = './Archives/Secunetcon.zip'; // Replace with your actual download link
             break;
-        case 'download archive2':
+        case 'download tar.gz':
             window.location.href = './Archives/Secunetcon.tar.gz'; // Replace with your actual download link
             break;
-        case 'download archive3':
+        case 'download 7z':
             window.location.href = './Archives/Secunetcon.7z'; // Replace with your actual download link
             break;
         case 'navigate top':
