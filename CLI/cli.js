@@ -28,7 +28,7 @@ function executeCommand(command) {
 // Function to load commands based on OS selection
 function loadCommands(os) {
     // Fetch commands.json based on selected OS
-    fetch(`./commands.json`)
+    fetch(`./CLI/cli.json`)
         .then(response => response.json())
         .then(data => {
             // Get commands based on selected OS
