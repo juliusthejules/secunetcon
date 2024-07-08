@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secunetcon CLI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .commands {
+            margin: 20px 0;
+        }
+        .commands button {
+            display: block;
+            margin: 5px 0;
+        }
+        #output {
+            margin-top: 20px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Secunetcon CLI</h1>
+    <label for="os-select">Choose OS:</label>
+    <select id="os-select" onchange="loadCommands()">
+        <option value="unix">Unix</option>
+        <option value="windows">Windows</option>
+    </select>
+    <div class="commands" id="commands"></div>
+    <div id="output"></div>
+
+    <script>
+        const commands = {
+            unix: {
+                network_settings: [
+                    { command: "sudo ifconfig eth0 down", description: "Mask IPv4 and IPv6 addresses" },
+                    { command: "sudo ifconfig eth0 inet 127.0.0.1", description: "Assign localhost IPv4 address" },
+                    { command: "sudo ifconfig eth0 inet6 add ::1/128", description: "Assign localhost IPv6 address" },
+                    { command: "sudo nmcli con mod eth0 ipv4.dns \"127.0.0.1\"", description: "Set primary DNS to localhost IPv4 address" },
+                    { command: "sudo nmcli con mod eth0 ipv6.dns \"::1\"", description: "Set secondary DNS to localhost IPv6 address" }
+                ],
+                hostname: [
+                    { command: "sudo hostnamectl set-hostname 127.0.0.1", description: "Change hostname to localhost" }
+                ],
+                mac_address: [
+                    { command: "sudo ifconfig eth0 hw ether 00:00:00:00:00:00", description: "Change MAC address to all zeros" }
+                ],
+                bluetooth_address: [
+                    { command: "sudo hciconfig hci0 down", description: "Disable Bluetooth interface" },
+                    { command: "sudo hciconfig hci0 up", description: "Enable Bluetooth interface" },
+                    { command: "sudo hciconfig hci0 name localhost", description: "Change Bluetooth name" },
+                    { command: "sudo hciconfig hci0 piscan", description: "Enable Bluetooth discovery" }
+                ],
+                location_services: [
+                    { command: "sudo systemctl stop ModemManager", description: "Disable location and geolocation" }
+                ],
+                firewall: [
+                    { command: "sudo iptables -A OUTPUT -p icmp --icmp-type echo-request -j DROP", description: "Close pings" },
+                    { command: "sudo iptables -A INPUT -j DROP", description: "Block all ingress traffic" }
+                ],
+                browser_cleanup: [
+                    { command: "google-chrome --clear-cache --clear-cookies &> /dev/null", description: "Clear browser cookies and cache for Chrome" },
+                    { command: "firefox --clear-cache --clear-cookies &> /dev/null", description: "Clear browser cookies and cache for Firefox" },
+                    { command: "brave-browser --clear-cache --clear-cookies &> /dev/null", description: "Clear browser cookies and cache for Brave" },
+                    { command: "vivaldi --clear-cache --clear-cookies &> /dev/null", description: "Clear browser cookies and cache for Vivaldi" },
+                    { command: "chromium --clear-cache --clear-cookies &> /dev/null", description: "Clear browser cookies and cache for Chromium" }
+                ]
+            },
+            windows: {
+                network_settings: [
+                    { command: "ipconfig /release", description: "Release IP address" },
+                    { command: "ipconfig /renew", description: "Renew IP address" },
+                    { command: "netsh interface ipv4 set address name=\"Ethernet\" static 127.0.0.1", description: "Assign IPv4 localhost address" },
+                    { command: "netsh interface ipv6 set address name=\"Ethernet\" static ::1", description: "Assign IPv6 localhost address" },
+                    { command: "netsh interface ipv4 set dns name=\"Ethernet\" source=static addr=127.0.0.1 register=none", description: "Set primary DNS to IPv4 localhost address" },
+                    { command: "netsh interface ipv6 set dns name=\"Ethernet\" source=static addr=::1 register=none", description: "Set secondary DNS to IPv6 localhost address" }
+                ],
+                hostname: [
+                    { command: "powershell -Command \"Rename-Computer -NewName 'localhost'\"", description: "Change hostname to localhost" }
+                ],
+                mac_address: [
+                    { command: "reg add \".\\SYSTEM\\CurrentControlSet\\Control\\Class\\{4D36E972-E325-11CE-BFC1-08002bE10318}\\.\" /v NetworkAddress /d \"000000000000\" /f", description: "Change MAC address to all zeros" }
+                ],
+                bluetooth_address: [
+                    { command: "reg add \".\\SYSTEM\\CurrentControlSet\\Services\\BTHPORT\\Parameters\\Keys\\.\" /v Name /d \"localhost\" /f", description: "Change Bluetooth name to localhost" },
+                    { command: "reg add \".\\SYSTEM\\CurrentControlSet\\Services\\BTHPORT\\Parameters\\Keys\\.\" /v EnableLMPiscan /d 1 /t REG_DWORD /f", description: "Enable Bluetooth discovery" }
+                ],
+                location_services: [
+                    { command: "net stop \"SensorDataService\"", description: "Disable location services" }
+                ],
+                firewall: [
+                    { command: "netsh advfirewall firewall add rule name=\"Block ICMP\" protocol=icmpv4:any,any action=block", description: "Close pings" },
+                    { command: "netsh advfirewall set allprofiles firewallpolicy blockinbound", description: "Block all ingress traffic" }
+                ],
+                browser_cleanup: [
+                    { command: "start chrome --clear-ssl-state --incognito", description: "Clear browser cookies and cache for Chrome" },
+                    { command: "start firefox --no-remote -ProfileManager", description: "Clear browser cookies and cache for Firefox" },
+                    { command: "start brave --clear-browsing-data", description: "Clear browser cookies and cache for Brave" },
+                    { command: "start vivaldi --clearprivatedata", description: "Clear browser cookies and cache for Vivaldi" },
+                    { command: "start msedge --clear-browser-data", description: "Clear browser cookies and cache for Edge" },
+                    { command: "start ddg --clear-cache --clear-cookies", description: "Clear browser cookies and cache for DuckDuckGo" }
+                ]
+            }
+        };
+
+        function loadCommands() {
+            const os = document.getElementById('os-select').value;
+            const commandsDiv = document.getElementById('commands');
+            commandsDiv.innerHTML = '';
+
+            Object.keys(commands[os]).forEach(category => {
+                const categoryDiv = document.createElement('div');
+                const categoryTitle = document.createElement('h2');
+                categoryTitle.textContent = category.replace('_', ' ');
+                categoryDiv.appendChild(categoryTitle);
+
+                commands[os][category].forEach(cmd => {
+                    const button = document.createElement('button');
+                    button.textContent = cmd.description;
+                    button.onclick = () => executeCommand(cmd.command);
+                    categoryDiv.appendChild(button);
+                });
+
+                commandsDiv.appendChild(categoryDiv);
+            });
+        }
+
+        async function executeCommand(command) {
+            try {
+                const response = await fetch('/execute-command', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ command })
+                });
+
+                const result = await response.json();
+                document.getElementById('output').textContent = `Output:\n${result.output}`;
+            } catch (error) {
+                document.getElementById('output').textContent = `Error:\n${error.message}`;
+            }
+        }
+
+        // Load commands for the initial OS selection
+        loadCommands();
+    </script>
+</body>
+</html>
