@@ -1,0 +1,162 @@
+{
+  "unix": [
+    {
+      "name": "Mask IPv4 and IPv6 addresses",
+      "command": "sudo ifconfig eth0 down"
+    },
+    {
+      "name": "Assign localhost IPv4 address",
+      "command": "sudo ifconfig eth0 inet 127.0.0.1"
+    },
+    {
+      "name": "Assign localhost IPv6 address",
+      "command": "sudo ifconfig eth0 inet6 add ::1/128"
+    },
+    {
+      "name": "Set primary DNS to localhost IPv4 address",
+      "command": "sudo nmcli con mod eth0 ipv4.dns '127.0.0.1'"
+    },
+    {
+      "name": "Set secondary DNS to localhost IPv6 address",
+      "command": "sudo nmcli con mod eth0 ipv6.dns '::1'"
+    },
+    {
+      "name": "Change hostname to localhost",
+      "command": "sudo hostnamectl set-hostname 127.0.0.1"
+    },
+    {
+      "name": "Change MAC address to all zeros",
+      "command": "sudo ifconfig eth0 hw ether 00:00:00:00:00:00"
+    },
+    {
+      "name": "Disable Bluetooth interface",
+      "command": "sudo hciconfig hci0 down"
+    },
+    {
+      "name": "Enable Bluetooth interface",
+      "command": "sudo hciconfig hci0 up"
+    },
+    {
+      "name": "Change Bluetooth name",
+      "command": "sudo hciconfig hci0 name localhost"
+    },
+    {
+      "name": "Enable Bluetooth discovery",
+      "command": "sudo hciconfig hci0 piscan"
+    },
+    {
+      "name": "Disable location and geolocation",
+      "command": "sudo systemctl stop ModemManager"
+    },
+    {
+      "name": "Close pings",
+      "command": "sudo iptables -A OUTPUT -p icmp --icmp-type echo-request -j DROP"
+    },
+    {
+      "name": "Block all ingress traffic",
+      "command": "sudo iptables -A INPUT -j DROP"
+    },
+    {
+      "name": "Clear browser cookies and cache for Chrome",
+      "command": "google-chrome --clear-cache --clear-cookies &> /dev/null"
+    },
+    {
+      "name": "Clear browser cookies and cache for Firefox",
+      "command": "firefox --clear-cache --clear-cookies &> /dev/null"
+    },
+    {
+      "name": "Clear browser cookies and cache for Brave",
+      "command": "brave-browser --clear-cache --clear-cookies &> /dev/null"
+    },
+    {
+      "name": "Clear browser cookies and cache for Vivaldi",
+      "command": "vivaldi --clear-cache --clear-cookies &> /dev/null"
+    },
+    {
+      "name": "Clear browser cookies and cache for Chromium",
+      "command": "chromium --clear-cache --clear-cookies &> /dev/null"
+    },
+    {
+      "name": "Clear browser cookies and cache for DuckDuckGo",
+      "command": "ddg-browser --clear-cache --clear-cookies &> /dev/null"
+    }
+  ],
+  "windows": [
+    {
+      "name": "Release IP address",
+      "command": "ipconfig /release"
+    },
+    {
+      "name": "Renew IP address",
+      "command": "ipconfig /renew"
+    },
+    {
+      "name": "Assign IPv4 localhost address",
+      "command": "netsh interface ipv4 set address name=\"Ethernet\" static 127.0.0.1"
+    },
+    {
+      "name": "Assign IPv6 localhost address",
+      "command": "netsh interface ipv6 set address name=\"Ethernet\" static ::1"
+    },
+    {
+      "name": "Set primary DNS to IPv4 localhost address",
+      "command": "netsh interface ipv4 set dns name=\"Ethernet\" source=static addr=127.0.0.1 register=none"
+    },
+    {
+      "name": "Set secondary DNS to IPv6 localhost address",
+      "command": "netsh interface ipv6 set dns name=\"Ethernet\" source=static addr=::1 register=none"
+    },
+    {
+      "name": "Change hostname to IPv4 localhost address",
+      "command": "powershell -Command \"Rename-Computer -NewName 'localhost'\""
+    },
+    {
+      "name": "Change MAC address to all zeros",
+      "command": "reg add \".\\SYSTEM\\CurrentControlSet\\Control\\Class\\{4D36E972-E325-11CE-BFC1-08002bE10318}\\.\" /v NetworkAddress /d \"000000000000\" /f"
+    },
+    {
+      "name": "Change Bluetooth name to localhost",
+      "command": "reg add \".\\SYSTEM\\CurrentControlSet\\Services\\.\\Parameters\\Keys\\.\" /v Name /d \"localhost\" /f"
+    },
+    {
+      "name": "Enable Bluetooth discovery",
+      "command": "reg add \".\\SYSTEM\\CurrentControlSet\\Services\\.\\Parameters\\keys\\.\" /v EnableLMPiscan /d 1 /t REG_DWORD /f"
+    },
+    {
+      "name": "Disable location services",
+      "command": "net stop \"SensorDataService\""
+    },
+    {
+      "name": "Close pings",
+      "command": "netsh advfirewall firewall add rule name=\"Block ICMP\" protocol=icmpv4:any,any action=block"
+    },
+    {
+      "name": "Block all ingress traffic",
+      "command": "netsh advfirewall set allprofiles firewallpolicy blockinbound"
+    },
+    {
+      "name": "Clear browser cookies and cache for Chrome",
+      "command": "start chrome --clear-ssl-state --incognito"
+    },
+    {
+      "name": "Clear browser cookies and cache for Firefox",
+      "command": "start firefox --no-remote -ProfileManager"
+    },
+    {
+      "name": "Clear browser cookies and cache for Brave",
+      "command": "start brave --clear-browsing-data"
+    },
+    {
+      "name": "Clear browser cookies and cache for Vivaldi",
+      "command": "start vivaldi --clearprivatedata"
+    },
+    {
+      "name": "Clear browser cookies and cache for Edge",
+      "command": "start msedge --clear-browser-data"
+    },
+    {
+      "name": "Clear browser cookies and cache for DuckDuckGo",
+      "command": "start ddg --clear-cache --clear-cookies"
+    }
+  ]
+}
