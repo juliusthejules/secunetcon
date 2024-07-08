@@ -1,6 +1,10 @@
 # Secunetcon
 
-Secunetcon is a Direct Device Configuration Language (DDCL) that allows you to directly configure device settings using YAML format. This project includes configurations for both Unix-based and Microsoft systems.
+Secunetcon is an all-in-one cybersecurity toolkit and platform that allows you to directly configure device settings using various formats such as YAML, Bash, Batch, and Python. This project includes configurations for both Unix-based and Microsoft systems. 
+
+## CLI Bar
+
+The `index.html` file also comes with a Comand Line Interface (CLI) bar at the end of the webpage for executing the security measures straight from the browser!
 
 ## Overview
 
@@ -14,6 +18,10 @@ The repository contains the following files and directories:
 
 - `config.yml` (Unix-based)
 - `config.yml` (Microsoft)
+- `config.bat` (Microsoft)
+- `config.sh` (Unix-based)
+- `app.py`: A python script for executing the configurations of the YAML files.
+- `script.js`: A JavaScript file for executing the commands in the CLI bar at the end of the webpage.
 - `Secunetcon.zip`: A ZIP file containing both Unix-based and Microsoft configuration folders.
 - `Secunetcon.7z`: A 7z file containing both Unix-based and Microsoft configuration folders.
 - `Secunetcon.tar.gz`: A tar.gz file containing both Unix-based and Microsoft configuration folders.
@@ -28,7 +36,7 @@ To clone the repository, use the following command:
 
 ### Unix-based Systems
 
-The Unix-based configuration file can be found in the `Unix-based` directory. This configuration file includes commands to:
+The Unix-based configuration files can be found in the `Unix-based` directory. These configuration files includes commands to:
 
 - Mask IPv4 and IPv6 addresses
 - Change the hostname to localhost
@@ -41,7 +49,7 @@ The Unix-based configuration file can be found in the `Unix-based` directory. Th
 
 ### Microsoft Systems
 
-The Microsoft configuration file can be found in the `Microsoft` directory. This configuration file includes commands to:
+The Microsoft configuration files can be found in the `Microsoft` directory. These configuration files includes commands to:
 
 - Disable and enable the network interface
 - Set IPv4 and IPv6 addresses
