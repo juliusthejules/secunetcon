@@ -111,7 +111,7 @@ footer {
 #cli-bar {
     display: flex;
     align-items: center;
-    padding: 8px;
+    padding: 6px;
     background-color: #f0f0f0; /* Match your existing styles */
     border-top: 1px solid #ccc;
     position: fixed;
@@ -135,7 +135,7 @@ footer {
 
 #help-guide {
     display: none;
-    position: auto;
+    position: absolute;
     bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
