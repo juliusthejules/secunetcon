@@ -103,6 +103,67 @@ footer {
     padding: 20px;
 }
 
+#cli-section {
+    position: relative;
+    margin-top: 20px;
+}
+
+#cli-bar {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f0f0; /* Match your existing styles */
+    border-top: 1px solid #ccc;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#cli-input {
+    flex: 1;
+    padding: 5px;
+    font-size: 16px;
+}
+
+#help-indicator {
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #0044cc; /* Match your existing styles */
+}
+
+#help-guide {
+    display: none;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#help-guide.show {
+    display: block;
+}
+
+#help-guide p {
+    margin: 0;
+    font-weight: bold;
+}
+
+#help-guide ul {
+    list-style: none;
+    padding: 0;
+}
+
+#help-guide ul li {
+    margin: 5px 0;
+}
+
 * {
     box-sizing: border-box;
 }
