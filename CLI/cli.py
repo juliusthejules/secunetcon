@@ -1,20 +1,31 @@
 from flask import Flask, request, jsonify
 import subprocess
+import json
 
 app = Flask(__name__)
 
-@app.route('/execute-command', methods=['POST'])
+# Load commands from cli.json
+with open('./CLI/cli.json', 'r') as f:
+    commands = json.load(f)
+
+@app.route('/execute', methods=['POST'])
 def execute_command():
     data = request.get_json()
-    command = data['command']
-
-    try:
-        result = subprocess.run(command, shell=True, check=True, text=True, capture_output=True)
-        output = result.stdout
-    except subprocess.CalledProcessError as e:
-        output = e.stderr
-
-    return jsonify({'output': output})
+    command_name = data['command']
+    
+    if command_name in commands:
+        command = commands[command_name]['command']
+        comment = commands[command_name]['comment']
+        
+        # Execute command using subprocess
+        try:
+            result = subprocess.run(command, shell=True, capture_output=True, text=True)
+            output = result.stdout.strip()
+            return jsonify({'output': output, 'comment': comment})
+        except subprocess.CalledProcessError as e:
+            return jsonify({'error': str(e)})
+    else:
+        return jsonify({'error': 'Command not found'})
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
