@@ -138,6 +138,19 @@ footer {
     padding: 20px;
 }
 
+.liability-disclaimer {
+    background-color: #222; /* Dark background */
+    color: #fff; /* White text */
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9em; /* Slightly smaller text */
+    border-top: 1px solid #444; /* Top border for separation */
+}
+
+.liability-disclaimer p {
+    margin: 0;
+}
+
 /* CLI Bar Styles */
 #cli-bar {
     position: fixed;
