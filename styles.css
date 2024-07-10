@@ -96,14 +96,7 @@ a:hover {
     background-color: #ffdd44; /* Lighter yellow on hover */
 }
 
-footer {
-    background-color: #222; /* Very dark gray background */
-    color: #fff; /* White text color */
-    text-align: center;
-    padding: 20px;
-}
-
-/* Press Releases Section */
+/* Press Releases Section Styles */
 .press-releases {
     margin: 20px 0;
     padding: 20px;
@@ -123,7 +116,7 @@ footer {
     margin-bottom: 20px;
 }
 
-/* Press Releases Button */
+/* Press Releases Button Styles */
 .press-releases-button {
     display: inline-block;
     padding: 10px 20px;
@@ -136,6 +129,13 @@ footer {
 
 .press-releases-button:hover {
     background-color: #005bb5;
+}
+
+footer {
+    background-color: #222; /* Very dark gray background */
+    color: #fff; /* White text color */
+    text-align: center;
+    padding: 20px;
 }
 
 /* CLI Bar Styles */
