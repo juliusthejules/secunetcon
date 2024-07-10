@@ -1,6 +1,6 @@
 # Secunetcon
 
-Secunetcon is an all-in-one cybersecurity toolkit and platform that allows you to directly configure device settings using various formats such as YAML, Bash, Batch, and Python. This project includes configurations for both Unix-based and Microsoft systems. 
+Secunetcon is an all-in-one cybersecurity toolkit and platform that allows you to directly configure device settings using various formats such as YAML, Bash, Batch, and Python. This project includes configurations for both Unix-based and Microsoft systems. Just use the CLI bar at the bottom of the page.
 
 ## CLI Bar
 
