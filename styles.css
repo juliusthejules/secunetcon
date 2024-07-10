@@ -98,21 +98,21 @@ a:hover {
 
 /* Press Releases Section Styles */
 .press-releases {
-    margin: 20px 0;
+    background-color: #0044cc; /* Dark blue background */
+    color: #fff; /* White text color */
     padding: 20px;
-    background-color: #f5f5f5;
+    text-align: center;
     border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 .press-releases h2 {
-    color: #333;
     font-size: 24px;
     margin-bottom: 10px;
 }
 
 .press-releases p {
     font-size: 16px;
-    color: #666;
     margin-bottom: 20px;
 }
 
@@ -120,15 +120,15 @@ a:hover {
 .press-releases-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #0073e6;
-    color: #fff;
+    background-color: #ffcc00; /* Yellow background */
+    color: #0044cc; /* Dark blue text color */
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
 }
 
 .press-releases-button:hover {
-    background-color: #005bb5;
+    background-color: #ffdd44; /* Lighter yellow on hover */
 }
 
 footer {
