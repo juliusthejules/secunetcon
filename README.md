@@ -22,10 +22,7 @@ The repository contains the following files and directories:
 - `config.sh` (Unix-based)
 - `app.py`: A python script for executing the configurations of the YAML files.
 - `script.js`: A JavaScript file for executing the commands in the CLI bar at the end of the webpage.
-- `Secunetcon.zip`: A ZIP file containing both Unix-based and Microsoft configuration folders.
-- `Secunetcon.7z`: A 7z file containing both Unix-based and Microsoft configuration folders.
-- `Secunetcon.tar.gz`: A tar.gz file containing both Unix-based and Microsoft configuration folders.
-
+  
 ## Cloning the Repository
 
 To clone the repository, use the following command:
@@ -60,14 +57,6 @@ The Microsoft configuration files can be found in the `Microsoft` directory. The
 - Block all ICMP echo requests (pings)
 - Block all incoming traffic
 - Clear browser cookies and cache
-
-### Archives
-
-The archive files can be found in the `Archives` directory. This directory contains compressed versions of the project, which include both Unix-based and Microsoft configuration folders. The available archive formats are:
-
-- `Secunetcon.zip`: A ZIP file containing both Unix-based and Microsoft configuration folders.
-- `Secunetcon.7z`: A 7z file containing both Unix-based and Microsoft configuration folders.
-- `Secunetcon.tar.gz`: A tar.gz file containing both Unix-based and Microsoft configuration folders.
 
 ## Documentation
 
