@@ -34,17 +34,22 @@ header a:hover {
 nav {
     background-color: #333; /* Different background color */
     color: #fff; /* White text color */
-    padding: 3px; /* Less padding for spacing */
+    padding: 5px 10px; /* Less padding for spacing */
     border-radius: 5px; /* Rounded corners */
-    margin-bottom: 6px; /* Less space below the navbar */
+    margin-bottom: 5px; /* Less space below the navbar */
+    width: 100%; /* Stretch the navbar to full width */
+    box-sizing: border-box; /* Include padding in width */
+    white-space: nowrap; /* Prevent wrapping of links */
+    overflow: hidden; /* Hide overflow if any */
 }
 
 nav a {
     color: #ffcc00; /* Link color matching other buttons */
     text-decoration: none; /* Remove underline from links */
-    padding: 5px 5px; /* Padding around links */
+    padding: 5px 8px; /* Padding around links */
     border-radius: 3px; /* Rounded corners for links */
-    margin: 0 5px; /* Less horizontal margin between links */
+    margin: 0 3px; /* Less horizontal margin between links */
+    display: inline-block; /* Ensure links stay inline */
 }
 
 nav a:hover {
