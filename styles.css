@@ -30,7 +30,7 @@ header a:hover {
     text-decoration: underline;
 }
 
-section {
+main {
     margin: 20px 0;
 }
 
@@ -38,6 +38,24 @@ h2 {
     background-color: #222; /* Very dark gray background */
     color: #fff; /* White text color */
     padding: 10px;
+}
+
+.blog-container {
+    background-color: #f9f9f9; /* Light gray background for lists */
+    padding: 10px;
+}
+
+.blog-post {
+    margin: 10px 0;
+}
+
+.blog-post h3 a {
+    color: #0044cc; /* Blue link color */
+    text-decoration: none;
+}
+
+.blog-post h3 a:hover {
+    text-decoration: underline;
 }
 
 ul {
@@ -92,42 +110,7 @@ a:hover {
     border-radius: 5px;
 }
 
-.contact-button:hover {
-    background-color: #ffdd44; /* Lighter yellow on hover */
-}
-
-/* Press Releases Section Styles */
-.press-releases {
-    background-color: #0044cc; /* Dark blue background */
-    color: #fff; /* White text color */
-    padding: 20px;
-    text-align: center;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
-.press-releases h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.press-releases p {
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-/* Press Releases Button Styles */
-.press-releases-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #ffcc00; /* Yellow background */
-    color: #0044cc; /* Dark blue text color */
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.press-releases-button:hover {
+contact-button:hover {
     background-color: #ffdd44; /* Lighter yellow on hover */
 }
 
@@ -221,4 +204,4 @@ body {
 
 * {
     box-sizing: border-box;
-}
+    }
