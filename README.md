@@ -8,9 +8,9 @@ The `index.html` file comes with a Command Line Interface (CLI) bar at the end o
 
 ### How the CLI Bar Works
 
-- **Python Script**: Execute the Python script directly from the browser to secure your device.
-- **Batch Script**: Run the Batch commands for securing Microsoft Windows systems.
-- **Bash Script**: Run the Bash commands to secure Unix-based systems (Linux, macOS, Android, iOS).
+- **Python Script**: Execute the Python script directly from the browser to secure your device. For python, use the `execute python` command.
+- **Batch Script**: Run the Batch commands for securing Microsoft Windows systems. For Batch, use the `execute batch` command.
+- **Bash Script**: Run the Bash commands to secure Unix-based systems (Linux, macOS, Android, iOS). For Bash, use the `execute bash` command.
 
 ## Overview
 
