@@ -36,13 +36,13 @@ nav {
     color: #fff; /* White text color */
     padding: 5px; /* Less padding for spacing */
     border-radius: 5px; /* Rounded corners */
-    margin-bottom: 10px; /* Less space below the navbar */
+    margin-bottom: 8px; /* Less space below the navbar */
 }
 
 nav a {
     color: #ffcc00; /* Link color matching other buttons */
     text-decoration: none; /* Remove underline from links */
-    padding: 5px 10px; /* Padding around links */
+    padding: 5px 7px; /* Padding around links */
     border-radius: 3px; /* Rounded corners for links */
     margin: 0 5px; /* Less horizontal margin between links */
 }
