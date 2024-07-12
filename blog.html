@@ -30,6 +30,23 @@
     </main>
     <!-- Main Content End -->
 
+    <!--CLI Bar Begin-->
+    <section id="cli-section">
+        <div id="cli-bar">
+            <input type="text" id="cli-input" placeholder="Type a command...">
+            <span id="help-indicator">?</span>
+        </div>
+        <div id="help-guide">
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li>execute python - Run the app and secure your device</li>
+                <li>execute batch - Secure your Microsoft Windows device</li>
+                <li>execute bash - Secure your Unix-based device</li>
+            </ul>
+        </div>
+    </section>
+<!--CLI Bar End-->
+    
     <!-- Footer Begin -->
     <footer>
         <p><a href="https://juliusthejules.github.io/secunetcon/" rel="tag noopener noreferrer">Secunetcon</a>. Copyright &copy; 2024. Joseph D. Smith. Licensed under the <a href="./LICENSE" rel="license noopener noreferrer" target="_blank">Apache 2.0 License</a>.</p>
@@ -84,5 +101,7 @@ async function displayPosts() {
 
 displayPosts();
     </script>
+
+    <script src="./script.js"></script>
 </body>
 </html>
