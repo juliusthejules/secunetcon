@@ -34,9 +34,9 @@ header a:hover {
 nav {
     background-color: #333; /* Different background color */
     color: #fff; /* White text color */
-    padding: 5px; /* Less padding for spacing */
+    padding: 3px; /* Less padding for spacing */
     border-radius: 5px; /* Rounded corners */
-    margin-bottom: 7px; /* Less space below the navbar */
+    margin-bottom: 6px; /* Less space below the navbar */
 }
 
 nav a {
