@@ -75,3 +75,7 @@ For detailed documentation on how to use Secunetcon, please refer to the individ
 For questions or support, please contact the maintainer at [secunetcon@duck.com](mailto:secunetcon@duck.com?subject=Secunetcon).
 
 Thank you for using Secunetcon!
+
+## Disclaimer
+
+By using Secunetcon, you agree to waive all liability and hold harmless Joseph D. Smith and all associated parties for any consequences arising from its use. You acknowledge and understand the risks involved.
