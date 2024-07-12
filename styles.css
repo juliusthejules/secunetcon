@@ -6,6 +6,28 @@ body {
     padding: 0;
 }
 
+/* Navbar Styling */
+.navbar {
+    background-color: #0044cc; /* Match the background color with the rest of the sections */
+    color: #fff; /* White text color */
+    padding: 15px 20px; /* Padding for spacing */
+    text-align: center; /* Center align the text */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 20px; /* Space below the navbar */
+}
+
+.navbar a {
+    color: #ffcc00; /* Link color matching other buttons */
+    text-decoration: none; /* Remove underline from links */
+    padding: 10px 15px; /* Padding around links */
+    border-radius: 5px; /* Rounded corners for links */
+}
+
+.navbar a:hover {
+    background-color: #ffdd44; /* Hover effect for links */
+    color: #0044cc; /* Text color on hover */
+}
+
 header, main, footer {
     max-width: 800px;
     margin: 0 auto;
