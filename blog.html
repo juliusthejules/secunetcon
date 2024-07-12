@@ -13,8 +13,13 @@
         <h1>Secunetcon Blog</h1>
         <p>Welcome to the <b>Secunetcon Blog</b>, where we share the latest updates, insights, and tutorials on cybersecurity, scripting, and more. Stay tuned for new posts and valuable information.</p>
         <hr>
-    <p><a href='./index.html' rel="noopener noreferrer"><strong>HOME</strong></a> - <a href='./blog.html' rel="noopener noreferrer"><strong>BLOG</strong></a> - <a href="https://gravatar.com/secunetcon" rel="me noopener noreferrer"><strong>CONTACT</strong></a> - <a href='https://paylinkz.app/juliusthejules' rel="noopener noreferrer" target="_blank"><strong>TIP JAR</strong></a></p> 
-    <hr>
+        <nav>
+            <a href='./index.html' rel="noopener noreferrer"><strong>HOME</strong></a> -
+            <a href='./blog.html' rel="noopener noreferrer"><strong>BLOG</strong></a> -
+            <a href="https://gravatar.com/secunetcon" rel="me noopener noreferrer"><strong>CONTACT</strong></a> -
+            <a href='https://paylinkz.app/juliusthejules' rel="noopener noreferrer" target="_blank"><strong>TIP JAR</strong></a>
+        </nav>
+        <hr>
     </header>
     <!-- Header End -->
 
@@ -39,33 +44,45 @@
     <!-- Liability Disclaimer Section End -->
 
     <script>
-        async function fetchMediumPosts() {
-            const response = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@secunetcon');
-            const data = await response.json();
-            return data.items; // Get the posts from the feed
-        }
+async function fetchMediumPosts() {
+    try {
+        const response = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@secunetcon');
+        const data = await response.json();
+        return data.items || []; // Return empty array if items are undefined
+    } catch (error) {
+        console.error('Error fetching Medium posts:', error);
+        return []; // Return empty array on error
+    }
+}
 
-        function createPostElement(post) {
-            const postElement = document.createElement('div');
-            postElement.classList.add('blog-post');
-            postElement.innerHTML = `
-                <h3><a href="${post.link}" target="_blank">${post.title}</a></h3>
-                <p>${post.pubDate}</p>
-                <p>${post.contentSnippet}</p>
-            `;
-            return postElement;
-        }
+function createPostElement(post) {
+    const postElement = document.createElement('div');
+    postElement.classList.add('blog-post');
 
-        async function displayPosts() {
-            const posts = await fetchMediumPosts();
-            const blogContainer = document.getElementById('blog-container');
-            posts.forEach(post => {
-                const postElement = createPostElement(post);
-                blogContainer.appendChild(postElement);
-            });
-        }
+    const postTitle = post.title || 'No Title';
+    const postDate = post.pubDate ? new Date(post.pubDate).toDateString() : 'No Date';
+    const postContent = post.contentSnippet || '';
 
-        displayPosts();
+    postElement.innerHTML = `
+        <h3><a href="${post.link}" target="_blank">${postTitle}</a></h3>
+        <p>${postDate}</p>
+        <p>${postContent}</p>
+    `;
+    return postElement;
+}
+
+async function displayPosts() {
+    const posts = await fetchMediumPosts();
+    const blogContainer = document.getElementById('blog-container');
+    blogContainer.innerHTML = ''; // Clear previous content
+
+    posts.forEach(post => {
+        const postElement = createPostElement(post);
+        blogContainer.appendChild(postElement);
+    });
+}
+
+displayPosts();
     </script>
 </body>
 </html>
