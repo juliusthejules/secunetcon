@@ -72,10 +72,10 @@ For detailed documentation on how to use Secunetcon, please refer to the individ
 
 ## Contact
 
-For questions or support, please contact the maintainer at [joseph.jds.smith@gmail.com](mailto:joseph.jds.smith@gmail.com?subject=Secunetcon).
+For questions or support, please contact the maintainer at [juliusthejulessp@duck.com](mailto:juliusthejulessp@duck.com?subject=Secunetcon).
 
-Thank you for using Secunetcon!
+Thank you for using Secunetcon, owned by Joseph D. Smith/Julius the Jules, SP!
 
 ## Disclaimer
 
-By using Secunetcon, you agree to waive all liability and hold harmless Joseph D. Smith and all associated parties for any consequences arising from its use. You acknowledge and understand the risks involved.
+By using Secunetcon, you agree to waive all liability and hold harmless Joseph D. Smith/Julius the Jules, SP and all associated parties for any consequences arising from its use. You acknowledge and understand the risks involved.
