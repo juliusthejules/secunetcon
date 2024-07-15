@@ -72,7 +72,7 @@ For detailed documentation on how to use Secunetcon, please refer to the individ
 
 ## Contact
 
-For questions or support, please contact the maintainer at [secunetcon@duck.com](mailto:secunetcon@duck.com?subject=Secunetcon).
+For questions or support, please contact the maintainer at [joseph.jds.smith@gmail.com](mailto:joseph.jds.smith@gmail.com?subject=Secunetcon).
 
 Thank you for using Secunetcon!
 
